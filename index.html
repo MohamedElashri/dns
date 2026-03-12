@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+  
+  <!-- Primary Meta Tags -->
+  <title>Encrypted DNS Profile Generator - Create Secure DNS Configurations for iOS & macOS</title>
+  <meta name="title" content="Encrypted DNS Profile Generator - Create Secure DNS Configurations for iOS & macOS">
+  <meta name="description" content="Free online tool to generate encrypted DNS configuration profiles (.mobileconfig) for iOS 14+ and macOS 11+. Support for DNS-over-HTTPS (DoH) and DNS-over-TLS (DoT). Secure your DNS traffic in minutes.">
+  <meta name="keywords" content="DNS profile generator, mobileconfig generator, DNS-over-HTTPS, DoH, DNS-over-TLS, DoT, iOS DNS configuration, macOS DNS profile, encrypted DNS, DNS privacy, Apple configuration profile, secure DNS generator">
+  <meta name="author" content="Mohamed Elashri">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://melashri.net/dns">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://melashri.net/dns">
+  <meta property="og:title" content="Encrypted DNS Profile Generator - Secure DNS for iOS & macOS">
+  <meta property="og:description" content="Generate encrypted DNS configuration profiles for iOS and macOS. Support for DoH and DoT protocols. Free, fast, and secure.">
+  <meta property="og:image" content="https://melashri.net/dns/og-image.png">
+  <meta property="og:site_name" content="DNS Profile Generator">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://melashri.net/dns">
+  <meta name="twitter:title" content="Encrypted DNS Profile Generator">
+  <meta name="twitter:description" content="Generate encrypted DNS configuration profiles for iOS and macOS. Support for DoH and DoT protocols.">
+  <meta name="twitter:image" content="https://melashri.net/dns/twitter-image.png">
+  
+  <!-- Additional SEO -->
+  <meta name="application-name" content="DNS Profile Generator">
+  <meta name="apple-mobile-web-app-title" content="DNS Generator">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-TileColor" content="#3b82f6">
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔒</text></svg>">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Encrypted DNS Profile Generator",
+    "url": "https://melashri.net/dns",
+    "description": "Free online tool to generate encrypted DNS configuration profiles for iOS 14+ and macOS 11+",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "iOS, macOS",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Mohamed Elashri",
+      "url": "https://melashri.net"
+    },
+    "featureList": "DNS-over-HTTPS support, DNS-over-TLS support, .mobileconfig generation, On-Demand rules"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ========================================
+       Header
+       ======================================== -->
+  <header class="header">
+    <div class="header-content">
+      <div class="header-brand">
+        <div class="header-logo">🔒</div>
+        <h1 class="header-title">DNS <span class="text-accent">Profile</span> Generator</h1>
+      </div>
+      <div class="header-actions">
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <span>Dark Mode</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================
+       How It Works Section
+       ======================================== -->
+  <section class="how-it-works">
+    <div class="main-content">
+      <div class="section-header">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-subtitle">Set up encrypted DNS in 3 simple steps</p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-icon">⚙️</div>
+          <h3>Configure</h3>
+          <p>Enter your DNS provider details. Choose between DNS-over-HTTPS (DoH) or DNS-over-TLS (DoT) protocol.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-icon">📥</div>
+          <h3>Download</h3>
+          <p>Generate and download your personalized .mobileconfig profile file with a single click.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-icon">📲</div>
+          <h3>Install</h3>
+          <p>Open the downloaded file on your iOS or macOS device and follow the installation prompts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Main Content
+       ======================================== -->
+  <main class="main">
+    <div class="main-content">
+      
+      <!-- Page Header -->
+      <div class="page-header">
+        <h2 class="page-title">Encrypted DNS Configuration</h2>
+        <p class="page-subtitle">Generate secure .mobileconfig profiles for iOS 14+ and macOS 11+. Configure DNS-over-HTTPS or DNS-over-TLS with ease.</p>
+      </div>
+
+      <!-- Main Grid -->
+      <div class="container">
+        
+        <!-- ========================================
+             Configuration Form Card
+             ======================================== -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">⚙️ Configuration</h3>
+            <p class="card-subtitle">Enter your DNS settings below</p>
+          </div>
+
+          <form id="profileForm">
+            <!-- Profile Name -->
+            <div class="form-group">
+              <label for="profileName">Profile Name</label>
+              <input type="text" id="profileName" value="My Secure DNS" required placeholder="Enter profile name">
+            </div>
+
+            <!-- Organization & Identifier Row -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="organization">Organization <span class="hint">(Optional)</span></label>
+                <input type="text" id="organization" placeholder="example.org">
+              </div>
+              <div class="form-group">
+                <label for="identifier">Identifier</label>
+                <input type="text" id="identifier" value="com.example.dns" required placeholder="com.example.dns">
+              </div>
+            </div>
+
+            <!-- Protocol Selection -->
+            <div class="form-group">
+              <label>Protocol</label>
+              <div class="protocol-tabs">
+                <label>
+                  <input type="radio" name="protocol" value="HTTPS" checked>
+                  <span>🔐 DNS-over-HTTPS (DoH)</span>
+                </label>
+                <label>
+                  <input type="radio" name="protocol" value="TLS">
+                  <span>🔒 DNS-over-TLS (DoT)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- DoH Server URL Field -->
+            <div id="dohFields" class="conditional-field active">
+              <div class="form-group">
+                <label for="serverUrl">DoH Server URL</label>
+                <input type="url" id="serverUrl" placeholder="https://dns.example.com/dns-query">
+              </div>
+            </div>
+
+            <!-- DoT Fields -->
+            <div id="dotFields" class="conditional-field">
+              <div class="form-group">
+                <label for="serverName">DoT Server Name <span class="hint">(Hostname)</span></label>
+                <input type="text" id="serverName" placeholder="dns.example.com">
+              </div>
+              <div class="form-group">
+                <label for="serverAddresses">Server IP Addresses <span class="hint">(Optional)</span></label>
+                <input type="text" id="serverAddresses" placeholder="1.1.1.1, 1.0.0.1">
+              </div>
+            </div>
+
+            <!-- On-Demand Toggle -->
+            <div class="form-group">
+              <label class="inline" for="useOnDemand">
+                <input type="checkbox" id="useOnDemand" checked>
+                Enable On-Demand (System-wide coverage)
+              </label>
+            </div>
+
+            <!-- Download Button -->
+            <button type="submit" class="btn btn-primary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download .mobileconfig
+            </button>
+
+            <!-- Status Message -->
+            <div id="status" class="status"></div>
+          </form>
+        </div>
+
+        <!-- ========================================
+             XML Preview Card
+             ======================================== -->
+        <div class="card">
+          <div class="preview-header">
+            <h3 class="preview-title">📄 XML Preview</h3>
+            <button id="copyBtn" class="btn btn-secondary btn-icon" type="button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+              </svg>
+              Copy XML
+            </button>
+          </div>
+          <div id="preview" class="preview"></div>
+        </div>
+
+      </div>
+
+      <!-- ========================================
+           Installation Guide Section
+           ======================================== -->
+      <section class="install-guide">
+        <div class="section-header">
+          <h2 class="section-title">Installation Guide</h2>
+          <p class="section-subtitle">Detailed steps for installing your DNS profile</p>
+        </div>
+        <div class="guide-grid">
+          <div class="guide-card">
+            <h4>📱 iOS Installation</h4>
+            <ol>
+              <li>Tap the downloaded .mobileconfig file</li>
+              <li>Go to <strong>Settings</strong> → <strong>Profile Download</strong></li>
+              <li>Tap <strong>Install</strong> and enter your passcode</li>
+              <li>Confirm installation and restart if prompted</li>
+              <li>Verify DNS settings in <strong>Settings</strong> → <strong>General</strong> → <strong>VPN &amp; Device Management</strong></li>
+            </ol>
+          </div>
+          <div class="guide-card">
+            <h4>💻 macOS Installation</h4>
+            <ol>
+              <li>Double-click the downloaded .mobileconfig file</li>
+              <li>Open <strong>System Settings</strong> → <strong>Privacy &amp; Security</strong></li>
+              <li>Find the profile and click <strong>Install</strong></li>
+              <li>Enter your administrator password</li>
+              <li>Verify in <strong>System Settings</strong> → <strong>Network</strong> → <strong>DNS</strong></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ========================================
+       Footer
+       ======================================== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <p class="footer-text">
+          © <span id="currentYear">2024</span> <a href="https://melashri.net" target="_blank" rel="noopener noreferrer">Mohamed Elashri</a>. All rights reserved.
+        </p>
+        <p class="footer-tagline">Built for secure browsing and privacy.</p>
+      </div>
+      <div class="footer-right">
+        <a href="https://melashri.net" target="_blank" rel="noopener noreferrer" class="footer-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+          </svg>
+          melashri.net
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/app.js" defer></script>
+</body>
+</html>
