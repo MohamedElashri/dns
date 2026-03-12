@@ -441,6 +441,14 @@ label.inline {
   letter-spacing: 0;
 }
 
+.form-hint {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  margin-left: 26px;
+  line-height: 1.5;
+}
+
 input[type="text"],
 input[type="url"] {
   width: 100%;

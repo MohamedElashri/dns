@@ -76,7 +76,8 @@
       serverUrl: document.getElementById('serverUrl')?.value.trim() || '',
       serverName: document.getElementById('serverName')?.value.trim() || '',
       serverAddrs: document.getElementById('serverAddresses')?.value.trim() || '',
-      useOnDemand: document.getElementById('useOnDemand')?.checked || true
+      useOnDemand: document.getElementById('useOnDemand')?.checked || true,
+      allowFailover: document.getElementById('allowFailover')?.checked ?? true
     };
   }
 
@@ -131,6 +132,10 @@
         </dict>
       </array>` : '';
 
+    const allowFailoverBlock = data.allowFailover ? `
+      <key>AllowFailover</key>
+      <true/>` : '';
+
     return `<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -139,7 +144,7 @@
   <array>
     <dict>
       <key>DNSSettings</key>
-      <dict>${protocolSpecificConfig}
+      <dict>${protocolSpecificConfig}${allowFailoverBlock}
       </dict>${onDemandBlock}
       <key>PayloadDescription</key>
       <string>Configures Encrypted DNS</string>
