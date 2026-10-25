@@ -41,6 +41,7 @@
    */
   function showStatus(message, type) {
     const statusEl = document.getElementById('status');
+    if (!statusEl) return;
     statusEl.textContent = message;
     statusEl.className = `status ${type} visible`;
     
@@ -55,7 +56,9 @@
    */
   function hideStatus() {
     const statusEl = document.getElementById('status');
-    statusEl.classList.remove('visible');
+    if (statusEl) {
+      statusEl.classList.remove('visible');
+    }
   }
 
   // ========================================
@@ -76,7 +79,7 @@
       serverUrl: document.getElementById('serverUrl')?.value.trim() || '',
       serverName: document.getElementById('serverName')?.value.trim() || '',
       serverAddrs: document.getElementById('serverAddresses')?.value.trim() || '',
-      useOnDemand: document.getElementById('useOnDemand')?.checked || true,
+      useOnDemand: document.getElementById('useOnDemand')?.checked ?? true,
       allowFailover: document.getElementById('allowFailover')?.checked ?? true
     };
   }
@@ -264,6 +267,18 @@
 
     navigator.clipboard.writeText(previewEl.textContent).then(() => {
       showStatus('✓ XML copied to clipboard!', 'success');
+      const copyBtn = document.getElementById('copyBtn');
+      if (copyBtn) {
+        const originalHtml = copyBtn.innerHTML;
+        copyBtn.innerHTML = `
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Copied!</span>`;
+        setTimeout(() => {
+          copyBtn.innerHTML = originalHtml;
+        }, 2000);
+      }
     }).catch(() => {
       showStatus('Error: Failed to copy to clipboard.', 'error');
     });
@@ -278,12 +293,21 @@
    */
   function initTheme() {
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const systemPrefersDark = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches : false;
     
     if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
       document.documentElement.setAttribute('data-theme', 'dark');
     } else {
       document.documentElement.setAttribute('data-theme', 'light');
+    }
+
+    // Follow system preference changes if user hasn't set an explicit preference
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+          document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        }
+      });
     }
   }
 
